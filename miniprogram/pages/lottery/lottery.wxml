@@ -1,0 +1,49 @@
+<view class="container">
+  <view class="lottery-container">
+    <image class="lottery-machine-1" src="https://6164-adad-8gh48azv3b404c25-1301511894.tcb.qcloud.la/base.png?sign=890cf94564d4a564a266270f5c917ba6&t=1605238208"></image>
+    <image style="animation-name:{{begin}}" class="animation-slow"
+      src="https://github.com/Aaronnon/resume/blob/main/move.png?raw=true"></image>
+  </view>
+
+  <view class="button-container">
+    <image class="button" bind:tap="onClickPrizes"
+      src="https://6164-adad-8gh48azv3b404c25-1301511894.tcb.qcloud.la/prizes-btn.png?sign=dd1c8ed8a9bffd701e00ad8daa54b1f4&t=1605239319"></image>
+    <view wx:if="{{status}}" class="button-start"></view>
+    <view wx:else class="button-start" bind:tap="onStartLottery"></view>
+    <image class="button-lottery" src="https://6164-adad-8gh48azv3b404c25-1301511894.tcb.qcloud.la/start-btn.png?sign=b7d7b2d1af26f508bf3f095f2b7a891d&t=1605239362"></image>
+  </view>
+
+  <view class="button-container2">
+    <image class="button2" bind:tap="onClickRules" src="https://6164-adad-8gh48azv3b404c25-1301511894.tcb.qcloud.la/rules-btn.png?sign=55a871f754d1ce08552ce1c0b3beefb9&t=1605240138"></image>
+    <image class="button2" src="https://6164-adad-8gh48azv3b404c25-1301511894.tcb.qcloud.la/rewards-btn.png?sign=3f212999584f4ac5722f2b9222c10ea2&t=1605240185"></image>
+  </view>
+
+  <l-popup l-class="first-popup" show="{{prizesStatus}}">
+    <view class="prizes-container">
+      <view class="close-prize" catch:tap="closeWinPrizes"></view>
+      <view class="click-again" catch:tap="onStartLotteryAgain"></view>
+      <image class="prizes-img" src="{{winPicUrl}}"></image>
+    </view>
+  </l-popup>
+
+  <l-popup show="{{isClick}}">
+    <view class="prizes-container">
+      <view class="close-prize" catch:tap="closeClickPrizes"></view>
+      <image class="prizes-img" src="https://6164-adad-8gh48azv3b404c25-1301511894.tcb.qcloud.la/prizes.png?sign=62ed288a7fdeb30c44cf13e7b1330279&t=1605239562"></image>
+    </view>
+  </l-popup>
+
+  
+  <l-popup show="{{isClick2}}">
+    <view class="prizes-container">
+      <view class="close-prize" catch:tap="closeClickPrizes"></view>
+      <image class="prizes-img" src="https://6164-adad-8gh48azv3b404c25-1301511894.tcb.qcloud.la/rules.png?sign=ef99c691d72ce46cea6e57efd05e6e72&t=1605240428"></image>
+    </view>
+  </l-popup>
+
+  <view class="notice-container">
+    <l-notice-bar l-class="notice-bar" show="{{true}}" type="roll" speed="3000">{{arr}}</l-notice-bar>
+  </view>
+
+
+</view>

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "l-popup":"/miniprogram_npm/lin-ui/popup/index",
+    "l-notice-bar":"/miniprogram_npm/lin-ui/notice-bar/index"
+  },
+  "navigationBarBackgroundColor": "#114169"
+}
