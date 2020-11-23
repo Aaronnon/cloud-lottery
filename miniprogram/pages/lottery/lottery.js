@@ -51,7 +51,8 @@ Page({
       },
       {
         title: "安慰奖",
-        url: "https://6164-adad-8gh48azv3b404c25-1301511894.tcb.qcloud.la/prizes/nowinitem.png?sign=68dcf8f37880e62d4c566aa02871e6a1&t=1605675489"
+        url: "https://6164-adad-8gh48azv3b404c25-1301511894.tcb.qcloud.la/prizes/nowinitem.png?sign=68dcf8f37880e62d4c566aa02871e6a1&t=1605675489",
+        winTime: Date()
       },
       {
         title: "没奖励",
