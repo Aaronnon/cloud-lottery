@@ -1,8 +1,5 @@
 /* pages/home/home.wxss */
-page {
-  background-image: url(https://6164-adad-8gh48azv3b404c25-1301511894.tcb.qcloud.la/main-background.jpg?sign=27fd6c9e2cb485f2b7c51911d04c2f5f&t=1605239286);
-  background-size: 100% 100%;
-}
+
 
 .container {
   width: 100%;
@@ -28,56 +25,96 @@ page {
 }
 
 .lottery-machine-1 {
+  /* background-color: #000; */
   position: absolute;
-  width: 541rpx;
-  height: 543rpx;
+  width: 543rpx;
+  height: 541rpx;
   bottom: 3.05vh;
   left: 70rpx;
-  z-index: 3;
-
 }
 
-.lottery-machine-2 {
+.remain-text {
+  font-family: adobe-heiti-std, sans-serif;
+  font-size: 24rpx;
   position: absolute;
+  bottom: 1vh;
+  /* text-align: center; */
+}
+
+.loading-img {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+
+
+.lottery-machine-2-container {
+  position: absolute;
+  transform-origin: center 300rpx;
+  /* background-color: #000; */
   width: 541rpx;
   height: 543rpx;
   bottom: 8.05vh;
   left: 105rpx;
-  z-index: 2;
-}
-
-
-.animation-slow {
-  position: absolute;
-  width: 541rpx;
-  height: 543rpx;
-  bottom: 8.05vh;
-  left: 105rpx;
-  z-index: 2;
-  /* animation-name: myfirst; 动画的名称 */
   animation-duration: 2000ms;
   /*动画从开始到结束的时间*/
   animation-timing-function: linear;
   /*动画执行快慢的参数*/
   animation-iteration-count: infinite;
-  /*动画执行多少次的参数*/
-  /*以下是兼容ios所需，参数意义与上相同*/
-  /* -webkit-animation-name: myfirst; */
   -webkit-animation-duration: 2000ms;
   -webkit-animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
+}
+
+.lottery-machine-3-container {
+  position: absolute;
+  transform-origin: 274rpx 296rpx;
+  /* background-color: #000; */
+  width: 541rpx;
+  height: 543rpx;
+  bottom: 8.05vh;
+  left: 105rpx;
+  animation-duration: 2000ms;
+  /*动画从开始到结束的时间*/
+  animation-timing-function: linear;
+  /*动画执行快慢的参数*/
+  animation-iteration-count: infinite;
+
+  -webkit-animation-duration: 2000ms;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  z-index: 5;
+}
+
+
+.lottery-machine-2 {
+  position: absolute;
+  left: -35rpx;
+  top: 72rpx;
+  width: 541rpx;
+  height: 543rpx;
+  /* z-index: 45; */
+}
+
+.lottery-machine-3 {
+  position: absolute;
+  left: -35rpx;
+  top: 5.3vh;
+  width: 541rpx;
+  height: 543rpx;
+  z-index: 6;
 }
 
 @keyframes myfirst {
 
   /*开始转的角度*/
   from {
-    transform: rotate(360deg);
+    transform: rotateZ(360deg);
   }
 
   /*结束的角度*/
   to {
-    transform: rotate(0deg);
+    transform: rotateZ(0deg);
   }
 }
 
@@ -100,6 +137,7 @@ page {
   justify-content: space-between;
   top: 58%;
 }
+
 .button-container2 {
   position: absolute;
   width: 88%;
@@ -110,29 +148,32 @@ page {
 }
 
 .button-lottery {
-  z-index: 4;
+  z-index: 10;
   width: 193rpx;
   height: 79rpx;
-  -webkit-animation: heartAnimate 1s ease infinite; 
+  -webkit-animation: heartAnimate 1s ease infinite;
   animation: heartAnimate 1s ease infinite;
 }
 
-.button{
-  z-index: 4;
+.button {
+  z-index: 10;
   width: 193rpx;
   height: 79rpx;
 
 }
 
 .button2 {
-  z-index: 4;
+  z-index: 10;
   width: 153rpx;
   height: 63rpx;
 }
 
+
 .button-start {
-  /* background-color: #000; */
-  z-index: 9;
+
+  /* outline: none; */
+  /* background-color: #0fa; */
+  z-index: 11;
   position: absolute;
   right: 1%;
   width: 193rpx;
@@ -144,7 +185,8 @@ page {
   width: 538rpx;
   height: 789rpx;
   position: relative;
-
+  display: flex;
+  justify-content: center;
 }
 
 .prizes-img {
@@ -185,15 +227,136 @@ page {
   width: 80% !important;
 }
 
-@keyframes heartAnimate{ 
-  0%,100%{transform:scale(1) rotate(0);}                       /*0%,100%时保持图形的原大小且不旋转*/
-  10%,30%{transform: scale(0.9) rotate(3deg);}                  /*10%,30%时图形缩小成0.9倍，并且顺时针旋转3度*/
-  20%,40%,60%,80%{transform:scale(1.1) rotate(-3deg);}         /*20%,40%,60%,80%时图形扩大成1.1倍，并且逆时针旋转3度*/
-  50%,70%{ transform:scale(1.1) rotate(3deg);}                 /*50%,70%时图形扩大成1.1倍，并且顺时针旋转3度*/
+@keyframes heartAnimate {
+
+  0%,
+  100% {
+    transform: scale(1) rotate(0);
+  }
+
+  /*0%,100%时保持图形的原大小且不旋转*/
+  10%,
+  30% {
+    transform: scale(0.9) rotate(3deg);
+  }
+
+  /*10%,30%时图形缩小成0.9倍，并且顺时针旋转3度*/
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: scale(1.1) rotate(-3deg);
+  }
+
+  /*20%,40%,60%,80%时图形扩大成1.1倍，并且逆时针旋转3度*/
+  50%,
+  70% {
+    transform: scale(1.1) rotate(3deg);
+  }
+
+  /*50%,70%时图形扩大成1.1倍，并且顺时针旋转3度*/
 }
-@-webkit-keyframes heartAnimate{
-  0%,100%{-webkit-transform: scale(1) rotate(0);}
-  10%,30%{-webkit-transform:scale(0.9) rotate(3deg);}
-  20%,40%,60%,80%{-webkit-transform: scale(1.1) rotate(-3deg);}
-  50%,70%{-webkit-transform: scale(1.1) rotate(3deg);}
+
+@-webkit-keyframes heartAnimate {
+
+  0%,
+  100% {
+    -webkit-transform: scale(1) rotate(0);
+  }
+
+  10%,
+  30% {
+    -webkit-transform: scale(0.9) rotate(3deg);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: scale(1.1) rotate(-3deg);
+  }
+
+  50%,
+  70% {
+    -webkit-transform: scale(1.1) rotate(3deg);
+  }
+}
+
+.sharepic-container {
+  width: 538rpx;
+  height: 303rpx;
+  position: relative;
+}
+
+.sharepic {
+  width: 538rpx;
+  height: 303rpx;
+}
+
+.close-share {
+  position: absolute;
+  right: 2vh;
+  top: 1vh;
+  width: 60rpx;
+  height: 60rpx;
+  /* background-color: #000; */
+}
+
+.shareBtn {
+  left: 100rpx;
+  bottom: 50rpx;
+  position: absolute;
+  width: 180rpx;
+  height: 90rpx;
+  background-color: transparent;
+}
+
+.reward-page {
+  width: 538rpx;
+  height: 789rpx;
+}
+
+.prize-container {
+  /* overflow: auto; */
+  padding-top: 160rpx;
+  padding-left: 50rpx;
+  position: absolute;
+  /* width: 538rxp; */
+  /* height: 789rpx; */
+  /* background-color: #000; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.prize {
+  /* position: absolute; */
+  width: 415rpx;
+  height: 109rpx;
+}
+
+.prize-view {
+  margin-bottom: 15rpx;
+}
+
+.reward-container {
+  position: relative;
+  width: 538rxp;
+  height: 789rpx;
+}
+
+.close-reward {
+  z-index: 10;
+  position: absolute;
+  top: 17rpx;
+  right: 25rpx;
+  width: 50rpx;
+  height: 60rpx;
+}
+.weChatBtn{
+  width: 200rpx;
+  height: 200rpx;
+  position: absolute;
+  bottom: 3vh;
 }
