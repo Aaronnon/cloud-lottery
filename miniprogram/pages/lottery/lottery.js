@@ -29,19 +29,26 @@ Page({
     noMore: false,
     winPrize: [{
         title: "特等奖",
-        url: "https://6164-adad-8gh48azv3b404c25-1301511894.tcb.qcloud.la/prizes/iphone.png?sign=e02ab1b041335ccd50fff597d652e30b&t=1605673947"
+        url: "https://6164-adad-8gh48azv3b404c25-1301511894.tcb.qcloud.la/prizes/iphone.png?sign=e02ab1b041335ccd50fff597d652e30b&t=1605673947",
+        winTime: Date()
       },
       {
         title: "一等奖",
-        url: "https://6164-adad-8gh48azv3b404c25-1301511894.tcb.qcloud.la/prizes/skg.png?sign=69cb7869d259bd7c25255a94a71164ef&t=1605675438"
+        url: "https://6164-adad-8gh48azv3b404c25-1301511894.tcb.qcloud.la/prizes/skg.png?sign=69cb7869d259bd7c25255a94a71164ef&t=1605675438",
+        winTime: Date()
+
       },
       {
         title: "二等奖",
-        url: "https://6164-adad-8gh48azv3b404c25-1301511894.tcb.qcloud.la/prizes/second.png?sign=807029dcc3ece8c3fa966fca4231a343&t=1605675460"
+        url: "https://6164-adad-8gh48azv3b404c25-1301511894.tcb.qcloud.la/prizes/second.png?sign=807029dcc3ece8c3fa966fca4231a343&t=1605675460",
+        winTime: Date()
+
       },
       {
         title: "三等奖",
-        url: "https://6164-adad-8gh48azv3b404c25-1301511894.tcb.qcloud.la/prizes/third.png?sign=081a83de6ef5b1a3d0047d52d88f51b7&t=1605675471"
+        url: "https://6164-adad-8gh48azv3b404c25-1301511894.tcb.qcloud.la/prizes/third.png?sign=081a83de6ef5b1a3d0047d52d88f51b7&t=1605675471",
+        winTime: Date()
+
       },
       {
         title: "安慰奖",
@@ -226,6 +233,8 @@ Page({
    */
   onLoad: function () {
 
+
+
     this.setData({
       show: true
     })
@@ -330,12 +339,12 @@ Page({
               show: false
             })
           }, 2000)
-
         } else {
           this.setData({
             disabled: false,
             show: false
           })
+
         }
       })
     })
@@ -369,12 +378,10 @@ Page({
     if (!this.data.status && userInfo) {
       db.collection('users').add({
         data: {
-
           userPhoto: userInfo.avatarUrl,
           nickName: userInfo.nickName,
           prizes: [],
           joinTime: new Date(),
-          winTime: Date(),
           _spinRound: Number
         }
       }).then((res) => {
