@@ -1,11 +1,11 @@
 <view class="container">
-  <l-loading opacity="1" custom="{{true}}" full-screen="true" show="{{show}}" size="large">
+  <!-- <l-loading opacity="1" custom="{{true}}" full-screen="true" show="{{show}}" size="large">
     <view>
       <image class="loading-img" src="../../images/1.gif">
       </image>
     </view>
-  </l-loading>
-  <!-- <l-loading bg-color="#000" opacity="0.5" type="circle" show="{{show}}" full-screen="true" size="medium"></l-loading> -->
+  </l-loading> -->
+  <l-loading bg-color="#fff" opacity="1" type="circle" show="{{show}}" full-screen="true" size="medium"></l-loading>
 
   <view class="lottery-container">
     <view class="lottery-machine-2-container" style="animation-name:{{begin}}">

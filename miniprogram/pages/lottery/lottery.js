@@ -68,15 +68,19 @@ Page({
       "https://6164-adad-8gh48azv3b404c25-1301511894.tcb.qcloud.la/prizes/5.png?sign=162836e5dc4a85929c292c587af637ad&t=1605238986"
     ],
     winPicUrl: "",
-    winPrizeTrue: []
+    winPrizeTrue: [],
+    prizesWeight: [1, 2, 3, 4, 1000, 98990]
   },
 
 
   onStartLottery() {
+
+
+    this.lotteryWin()
     const _ = db.command
 
     if (this.data._spinRound > 0) {
-      const randomUrl = Math.floor((Math.random() * this.data.winPic.length))
+      const randomUrl = this.lotteryWin()
       const newSpin = this.data._spinRound - 1
       const newPrizeUrl = this.data.winPrize[randomUrl]
 
@@ -140,6 +144,28 @@ Page({
     }
 
   },
+  lotteryWin() {
+
+    var weightSum = this.data.prizesWeight.reduce(function (prev, currVal) {
+      return prev + currVal
+    }, 0)
+    var ramdon = Math.random() * weightSum;
+    var concatWeightArr = this.data.prizesWeight.concat(ramdon);
+    var sortedWeightArr = concatWeightArr.sort(function (a, b) {
+      return a - b;
+    });
+
+    // console.log("本程序的奖项权重和值：", weightSum);
+    // console.log("本次抽奖的权重随机数：", ramdon);
+    // console.log("含权重随机数的新权重数组升序排序后：", sortedWeightArr);
+
+    var randomIndex = sortedWeightArr.indexOf(ramdon);
+    randomIndex = Math.min(randomIndex, this.data.winPic.length - 1); //权重随机数的下标不得超过奖项数组的长度-1，重新计算随机数在奖项数组中的索引位置                
+    // console.log("本次权重随机数对应的数组下标：", randomIndex);
+    return randomIndex
+
+  },
+
   winPrizeTrue() {
     var that = this
     var obj = {};

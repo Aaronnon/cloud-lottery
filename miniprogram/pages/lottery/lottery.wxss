@@ -1,6 +1,5 @@
 /* pages/home/home.wxss */
 
-
 .container {
   width: 100%;
   height: 100vh;
@@ -354,7 +353,8 @@
   width: 50rpx;
   height: 60rpx;
 }
-.weChatBtn{
+
+.weChatBtn {
   width: 200rpx;
   height: 200rpx;
   position: absolute;
