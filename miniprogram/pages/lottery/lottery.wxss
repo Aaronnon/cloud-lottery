@@ -95,6 +95,15 @@
   /* z-index: 45; */
 }
 
+.contact{
+  position: absolute;
+  height: 70rpx !important;
+  width: 200rpx !important;
+  background-color: transparent;
+  bottom: 2.5vh;
+  left: 170rpx;
+}
+
 .lottery-machine-3 {
   position: absolute;
   left: -35rpx;

@@ -2,7 +2,6 @@ const app = getApp()
 const db = wx.cloud.database()
 
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -86,7 +85,7 @@ Page({
 
       setTimeout(() => {
         this.setData({
-          lotteryRotate: true,
+          // lotteryRotate: true,
           disabled: false,
           prizesStatus: true,
           begin: "",
@@ -94,7 +93,7 @@ Page({
           isClick: false,
           isClick2: false,
           rewardStatus: false,
-          winPrizeUrl: this.data.winPrize[randomUrl]
+          // winPrizeUrl: this.data.winPrize[randomUrl]
         })
         if (randomUrl != 5) {
           db.collection('users').doc(app.userInfo._id).update({
@@ -114,19 +113,23 @@ Page({
             _spinRound: newSpin
           })
         })
+        wx.showShareMenu({
+          withShareTicket: true,
+          menus: ['shareAppMessage', 'shareTimeline']
+        })
 
 
 
       }, 6000);
-
+      wx.hideShareMenu({
+        menus: ['shareAppMessage', 'shareTimeline']
+      })
 
       this.setData({
         _spinRound: newSpin,
         spinFnc: '',
-        isClick: false,
-        isClick2: false,
         disabled: true,
-        lotteryRotate: false,
+        // lotteryRotate: false,
         begin: "myfirst",
         winPicUrl: this.data.winPic[randomUrl],
       })
@@ -385,12 +388,18 @@ Page({
    */
   onShareAppMessage: function () {
     const newShare = this.data._spinRound + 1
+    if(this.data.disabled){
+
+    }else{
+
+
+    }
+          
 
     this.setData({
       _spinRound: newShare,
       noMore: false
     })
-
 
     db.collection('users').doc(app.userInfo._id).update({
       data: {

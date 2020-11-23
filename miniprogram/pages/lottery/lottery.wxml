@@ -55,6 +55,8 @@
 
   <l-popup show="{{rewardStatus}}">
     <view class="reward-container">
+      <button class="contact" open-type="contact"></button>
+
       <view class="close-reward" catch:tap="closeReward"></view>
       <view class="prize-container">
         <scroll-view scroll-y style="height:500rpx;width:430rpx" enable-flex>
