@@ -69,14 +69,14 @@ Page({
     ],
     winPicUrl: "",
     winPrizeTrue: [],
-    prizesWeight: [1, 2, 3, 4, 1000, 98990]
+    prizesWeight: [0.1, 0.4, 0.5, 10, 40, 50]
   },
 
 
   onStartLottery() {
 
 
-    this.lotteryWin()
+    // this.lotteryWin()
     const _ = db.command
 
     if (this.data._spinRound > 0) {
@@ -94,7 +94,7 @@ Page({
           isClick: false,
           isClick2: false,
           rewardStatus: false,
-          // winPrizeUrl: this.data.winPrize[randomUrl]
+          winPrizeUrl: this.data.winPrize[randomUrl]
         })
         if (randomUrl != 5) {
           db.collection('users').doc(app.userInfo._id).update({
@@ -159,13 +159,13 @@ Page({
       return a - b;
     });
 
-    // console.log("本程序的奖项权重和值：", weightSum);
-    // console.log("本次抽奖的权重随机数：", ramdon);
-    // console.log("含权重随机数的新权重数组升序排序后：", sortedWeightArr);
+    console.log("本程序的奖项权重和值：", weightSum);
+    console.log("本次抽奖的权重随机数：", ramdon);
+    console.log("含权重随机数的新权重数组升序排序后：", sortedWeightArr);
 
     var randomIndex = sortedWeightArr.indexOf(ramdon);
     randomIndex = Math.min(randomIndex, this.data.winPic.length - 1); //权重随机数的下标不得超过奖项数组的长度-1，重新计算随机数在奖项数组中的索引位置                
-    // console.log("本次权重随机数对应的数组下标：", randomIndex);
+    console.log("本次权重随机数对应的数组下标：", randomIndex);
     return randomIndex
 
   },
