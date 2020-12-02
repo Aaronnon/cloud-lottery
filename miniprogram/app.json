@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/lottery/lottery"
+    
+  ],
+  "window": {
+    "navigationBarTitleText": "Poki Mall",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#FFD249"
+    
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

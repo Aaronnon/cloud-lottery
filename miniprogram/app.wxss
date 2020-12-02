@@ -1,0 +1,5 @@
+page {
+  background-image: url(https://6164-adad-8gh48azv3b404c25-1301511894.tcb.qcloud.la/main-background-min.jpg?sign=075dfe2edb0fe12b804c342e7c4e3d80&t=1605812212);
+  background-size: 100% 100%;
+  background-color: #114169;
+}
